@@ -23,8 +23,8 @@
 			<ul>
 				<li><a href="#">Team</a></li>
 				<li><a href="#">Tentang</a></li>
-				<li><a href="#">Daftar relawan</a></li>
-				<li><a href="#">Login</a></li>
+				<li><a href="./FormPendaftaran.php">Daftar relawan</a></li>
+				<li><a href="./FormLogin.php">Login</a></li>
 			</ul>
 		</nav>
 	</header>

@@ -77,7 +77,9 @@
 				<option value="admin">Admin</option>
 			</select>
 
-			<input type="submit" value="Register">
+	<button type="submit" value="Register">
+			<a href="./FormLogin.php">Register</a>
+	</button>
 		</div>
 	</form>
 
