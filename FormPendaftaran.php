@@ -1,3 +1,6 @@
+<?php
+include("./config.php")
+?>
 <!DOCTYPE html>
 <html>
 
@@ -53,7 +56,7 @@
 
 	<h2 style="text-align:center;">Registration Form</h2>
 
-	<form action="" method="post">
+	<form action="./proses_daftar_relawan.php" method="post">
 		<div class="container">
 			<label for="name"><b>Name</b></label>
 			<input type="text" placeholder="Enter Name" name="name" required>
@@ -64,25 +67,23 @@
 			<label for="password"><b>Password</b></label>
 			<input type="password" placeholder="Enter Password" name="password" required>
 
-			<label for="phone"><b>Phone</b></label>
-			<input type="text" placeholder="Enter Phone Number" name="phone" required>
+			<label for="nohp"><b>Phone</b></label>
+			<input type="text" placeholder="Enter Phone Number" name="nohp" required>
 
-			<label for="address"><b>Address</b></label>
-			<textarea placeholder="Enter Address" name="address" required></textarea>
+			<label for="alamat"><b>Address</b></label>
+			<textarea placeholder="Enter Address" name="alamat" required></textarea>
 
-			<label for="role"><b>Role</b></label>
-			<select name="role" required>
+			<!-- <label for="status"><b>Role</b></label>
+			<select name="status" required>
 				<option value="" disabled selected>--Select Role--</option>
 				<option value="volunteer">Volunteer</option>
 				<option value="admin">Admin</option>
-			</select>
+			</select> -->
 
 	<button type="submit" value="Register">
-			<a href="./FormLogin.php">Register</a>
+			Register
 	</button>
 		</div>
 	</form>
-
 </body>
-
 </html>

@@ -1,8 +1,11 @@
-<?php 
+<?php
 include "./config.php";
 session_start();
-?>
+$id_member = $_GET['id_member'];
+$data = mysqli_query($mysqli, "SELECT * FROM user WHERE id_member='$id_member'");
+$dr = mysqli_fetch_array($data);
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +15,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Dashboard Relawan</title>
+  <title>Profile</title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -41,7 +44,7 @@ session_start();
           <span>Dashboard</span></a>
       </li>
       <li class="nav-item active">
-      <a class="nav-link" href="./profil.php?id_member=<?php echo $_SESSION['id_member'];?>">
+      <a class="nav-link" href="profil.php?id_member=<?php $_SESSION['id_member'];?>">
           <i class="fas fa-fw fa-user"></i>
           <span>Profil</span></a>
       </li>
@@ -81,12 +84,12 @@ session_start();
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['name'];?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $dr['name'];?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="./logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="./frontend/awal.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -97,25 +100,51 @@ session_start();
         <!-- End of Topbar -->
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          </div>
-          <!-- Content Row -->
-          <div class="row">
-            <div class="col-lg-12">
-              <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Selamat Datang Sahabat Relawan <?php echo $_SESSION['username'];?> </h6>
-                </div>
-                <div class="card-body">
-                  <p>Di STIMIK ESQ ada kegiatan seperti volunteer , contohnya volunteer ATS setiap ingin mengikuti kegiatan volunteer harus daftar terlebih dahulu.</p>
-                  <p class="mb-0">Silahkan Mendaftarkan diri kalian masing-masing dalam ke ikut sertaan Volunteer ATS ESQ Busines School dimana terdapat category yang dapat di pilih sesuai dengan ke inginan relawan</p>
-                </div>
-              </div>
+            <form action="proses_edit_profile.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id_member" value="<?php echo $dr['id_member']; ?>">
+            <div class="mb-2">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" name="name" value="<?php echo $dr['name']; ?>">
             </div>
-          </div>
+            <div class="mb-2">
+            <fieldset disabled>
+            <label class="form-label">Email</label>
+            <input type="text"  class="form-control" name="email" value="<?php echo $dr['email']; ?>">
+            </fieldset>
+            </div>
+            <div class="mb-2">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" value="<?php echo $dr['username']; ?>">
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Tempat Lahir</label>
+              <input type="text" class="form-control" name="tempat_lahir" value="<?php echo $dr['tempat_lahir']; ?>" >
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Tanggal Lahir</label>
+              <input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $dr['tanggal_lahir']; ?>">
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Alamat</label>
+              <input type="text" class="form-control" name="alamat" value="<?php echo $dr['alamat']; ?>">
+            </div>
+            <div class="mb-2">
+              <label class="form-label">No Handphone</label>
+              <input type="text" class="form-control" name="nohp" value="<?php echo $dr['nohp']; ?>">
+            </div>
+            <div class="mb-2">
+            <fieldset disabled>
+            <label class="form-label">Status</label>
+            <input type="text"  class="form-control" name="status" value="<?php echo $dr['status']; ?>">
+            </fieldset>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Foto</label>
+              <img src="<?php echo $dr['foto']; ?>" >
+              <input type="file" class="form-control" name="foto">
+            </div>
+            <input class="btn btn-primary my-3" type="submit" value="edit">
+            </form>
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -150,7 +179,7 @@ session_start();
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="./frontend/awal.php">Logout</a>
+          <a class="btn btn-primary" href="./logout.php">Logout</a>
         </div>
       </div>
     </div>

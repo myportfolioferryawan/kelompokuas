@@ -1,8 +1,10 @@
-<?php 
+<?php
 include "./config.php";
 session_start();
-?>
+$id_member = $_GET['id_member'];
+$data = mysqli_query($mysqli, "SELECT id_acara, nama FROM acara");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,21 +101,30 @@ session_start();
         <div class="container-fluid">
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Daftar Acara Volunteer</h1>
           </div>
           <!-- Content Row -->
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
               <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Selamat Datang Sahabat Relawan <?php echo $_SESSION['username'];?> </h6>
-                </div>
-                <div class="card-body">
-                  <p>Di STIMIK ESQ ada kegiatan seperti volunteer , contohnya volunteer ATS setiap ingin mengikuti kegiatan volunteer harus daftar terlebih dahulu.</p>
-                  <p class="mb-0">Silahkan Mendaftarkan diri kalian masing-masing dalam ke ikut sertaan Volunteer ATS ESQ Busines School dimana terdapat category yang dapat di pilih sesuai dengan ke inginan relawan</p>
-                </div>
-              </div>
+        <form action="proses_daftar_acara.php" method="post">
+        <div class="mb-2">
+            <label class="form-label">Acara</label>
+            <div class="input-group mb-3">
+  <select class="form-control" name="acara">
+  <?php
+            while($da = mysqli_fetch_array($data)){
+                
+            ?>
+            <option value="<?php echo $da['id_acara'];?>"><?php echo $da['nama'];?></option>
+            <?php 
+            }
+            ?>
+  </select>
+  <button class="btn btn-primary" type="submit">Daftar</button>
+</div>
+    </div>
+        </form>
             </div>
           </div>
         </div>

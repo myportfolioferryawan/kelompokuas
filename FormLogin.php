@@ -1,3 +1,6 @@
+<?php
+include "./config.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -51,22 +54,22 @@
 <body>
 	<h2 style="text-align:center;">Login</h2>
 
-	<form action="" method="post">
+	<form action="./proses_login_relawan.php" method="post">
 		<div class="container">
-			<label for="uname"><b>Email/Username</b></label>
-			<input type="text" placeholder="Enter Email/Username" name="uname" required>
+			<label><b>Email/Username</b></label>
+			<input type="text" placeholder="Enter Email/Username" name="email" required>
 
-			<label for="psw"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="psw" required>
+			<label><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" required>
 
 			<label for="role"><b>Login as</b></label>
-			<select name="role" required>
+			<!-- <select name="role" required>
 				<option value="" disabled selected>--Select Role--</option>
 				<option value="volunteer">Volunteer</option>
 				<option value="admin">Admin</option>
-			</select>
+			</select> -->
 
-			<input type="submit" value="Login">
+			<input type="submit" value="login">
 
 			<p>Forgot password? <a href="forgot_password.php">Click here</a></p>
 		</div>

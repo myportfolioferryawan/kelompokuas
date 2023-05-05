@@ -1,8 +1,10 @@
-<?php 
+<?php
 include "./config.php";
 session_start();
-?>
+$id_member = $_GET['id_member'];
+$data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_relawan_acara FROM relawan_acara ra JOIN acara a ON ra.id_acara = a.id_acara WHERE ra.id_member='$id_member'");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +101,7 @@ session_start();
         <div class="container-fluid">
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Acara Volunteer</h1>
           </div>
           <!-- Content Row -->
           <div class="row">
@@ -107,12 +109,36 @@ session_start();
               <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Selamat Datang Sahabat Relawan <?php echo $_SESSION['username'];?> </h6>
+                <a href="daftar_acara.php?id_member=<?php echo $id_member;?>">Daftar Acara</a>
                 </div>
-                <div class="card-body">
-                  <p>Di STIMIK ESQ ada kegiatan seperti volunteer , contohnya volunteer ATS setiap ingin mengikuti kegiatan volunteer harus daftar terlebih dahulu.</p>
-                  <p class="mb-0">Silahkan Mendaftarkan diri kalian masing-masing dalam ke ikut sertaan Volunteer ATS ESQ Busines School dimana terdapat category yang dapat di pilih sesuai dengan ke inginan relawan</p>
-                </div>
+                <table class="table table-striped">
+                <tr>
+            <th>No</th>
+            <th>Acara</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <?php
+            $no=1;
+            while($dra = mysqli_fetch_array($data)){
+             ?>
+            <td><?php echo $no;?></td>
+            <td><?php echo $dra['nama']; ?></td>
+            <td><?php $s = $dra['status']; 
+            if($s == 0) echo "Belom dikonfirmasi";
+            else if($s == 1) echo "Diterima";
+            else echo "Ditolak";
+             ?></td>
+            <td>
+        <a class="text-danger" href="hapus_acara.php?id_relawan_acara=<?php echo $dra['id_relawan_acara'];?>" ><i class="fas fa-trash"></i>
+            </td>
+        </tr>
+        <?php 
+        $no++;
+        }
+        ?>
+                </table>
               </div>
             </div>
           </div>
