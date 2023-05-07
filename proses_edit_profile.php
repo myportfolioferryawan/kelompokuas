@@ -12,6 +12,8 @@ $nohp = $_POST['nohp'];
 $lokasi_file = $_FILES['foto']['tmp_name'];
 $nama_file = $_FILES['foto']['name'];
 
+
+
 // echo 
 // $id_member."-".$username."-".$name."-".$tempat_lahir."-".$tanggal_lahir."-".$alamat."-".$nohp."-".$lokasi_file."-".$nama_file;
 

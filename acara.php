@@ -2,7 +2,7 @@
 include "./config.php";
 session_start();
 $id_member = $_GET['id_member'];
-$data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_relawan_acara FROM relawan_acara ra JOIN acara a ON ra.id_acara = a.id_acara WHERE ra.id_member='$id_member'");
+$data = mysqli_query($mysqli, "SELECT a.nama, a.tanggal, a.deskripsi, ra.id_acara, ra.status, ra.id_relawan_acara FROM relawan_acara ra JOIN acara a ON ra.id_acara = a.id_acara WHERE ra.id_member='$id_member'");
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -38,7 +38,7 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="./index.php?id_member=<?php echo $_SESSION['id_member'];?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -47,6 +47,8 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
           <i class="fas fa-fw fa-user"></i>
           <span>Profil</span></a>
       </li>
+       <!-- Divider -->
+       <hr class="sidebar-divider d-none d-md-block">
       <li class="nav-item active">
       <a class="nav-link" href="./acara.php?id_member=<?php echo $_SESSION ['id_member']; ?>">
           <i class="fas fa-fw fa-clipboard-list"></i>
@@ -54,14 +56,7 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-      <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+     
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -84,7 +79,7 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['name'];?></span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="<?php echo $_SESSION['foto'];?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -109,16 +104,23 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
               <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                <a href="daftar_acara.php?id_member=<?php echo $id_member;?>">Daftar Acara</a>
+                <h6 class="m-0 font-weight-bold text-primary"><a href="daftar_acara.php?id_member=<?php echo $id_member;?>">Daftar Acara</a></h6>
                 </div>
-                <table class="table table-striped">
-                <tr>
-            <th>No</th>
-            <th>Acara</th>
-            <th>Status</th>
-            <th>Aksi</th>
-        </tr>
-        <tr>
+                <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                    <th>No</th>
+                    <th>Acara</th>
+                    <th>Status</th>
+                    <th>Tanggal</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
             <?php
             $no=1;
             while($dra = mysqli_fetch_array($data)){
@@ -129,16 +131,22 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
             if($s == 0) echo "Belom dikonfirmasi";
             else if($s == 1) echo "Diterima";
             else echo "Ditolak";
+
              ?></td>
+             <td><?php echo $dra['tanggal'];?></td>
+             <td><?php echo $dra['deskripsi'];?></td>
             <td>
-        <a class="text-danger" href="hapus_acara.php?id_relawan_acara=<?php echo $dra['id_relawan_acara'];?>" ><i class="fas fa-trash"></i>
+                <a href="hapus_acara.php?id_relawan_acara=<?php echo $dra['id_relawan_acara'];?>" class="text-danger" ><i class="fas fa-trash"></i>
             </td>
         </tr>
         <?php 
         $no++;
         }
         ?>
+                  </tbody>
                 </table>
+              </div>
+                </div>
               </div>
             </div>
           </div>
@@ -190,10 +198,10 @@ $data = mysqli_query($mysqli, "SELECT a.nama, ra.id_acara, ra.status, ra.id_rela
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

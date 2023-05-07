@@ -29,7 +29,7 @@ $dr = mysqli_fetch_array($data);
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -39,7 +39,7 @@ $dr = mysqli_fetch_array($data);
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="./index.php?id_member=<?php echo $_SESSION['id_member'];?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -48,6 +48,8 @@ $dr = mysqli_fetch_array($data);
           <i class="fas fa-fw fa-user"></i>
           <span>Profil</span></a>
       </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
       <li class="nav-item active">
       <a class="nav-link" href="./acara.php?id_member=<?php echo $_SESSION ['id_member']; ?>">
           <i class="fas fa-fw fa-clipboard-list"></i>
@@ -55,14 +57,7 @@ $dr = mysqli_fetch_array($data);
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-      <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+      
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -85,11 +80,11 @@ $dr = mysqli_fetch_array($data);
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $dr['name'];?></span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="<?php echo $dr['foto'];?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="./frontend/awal.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="./FormLogin.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>

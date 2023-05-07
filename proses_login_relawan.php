@@ -1,17 +1,20 @@
 <?php
 include ("./config.php");
-$email = $_POST['email'];
-$password = $_POST['password'];
+class login {
+     
+};
+     $email = $_POST['email'];
+     $password = $_POST['password'];
 
-$sql = "SELECT id_member, username FROM user WHERE email='$email' AND password='$password'";
+$sql = "SELECT id_member, username,name,foto FROM user WHERE email='$email' AND password='$password'";
 $query = mysqli_query($mysqli, $sql) or die ("Tidak ada databases");
 $data = mysqli_fetch_array($query);
 $row = mysqli_num_rows($query);
 
 session_start();
 $_SESSION['id_member'] = $data['id_member'];
-$_SESSION['username'] = $data['username'];
 $_SESSION['name'] = $data['name'];
+$_SESSION['foto'] = $data['foto'];
 
 
 if($row==1){

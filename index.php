@@ -26,7 +26,7 @@ session_start();
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -36,7 +36,7 @@ session_start();
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="./index.php?id_member=<?php echo $_SESSION['id_member'];?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -45,6 +45,8 @@ session_start();
           <i class="fas fa-fw fa-user"></i>
           <span>Profil</span></a>
       </li>
+       <!-- Divider -->
+       <hr class="sidebar-divider d-none d-md-block">
       <li class="nav-item active">
       <a class="nav-link" href="./acara.php?id_member=<?php echo $_SESSION ['id_member']; ?>">
           <i class="fas fa-fw fa-clipboard-list"></i>
@@ -52,14 +54,7 @@ session_start();
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-      <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+     
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -82,7 +77,7 @@ session_start();
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['name'];?></span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="<?php echo $_SESSION['foto'];?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -107,7 +102,7 @@ session_start();
               <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Selamat Datang Sahabat Relawan <?php echo $_SESSION['username'];?> </h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Selamat Datang Sahabat Relawan <?php echo $_SESSION['name'];?> </h6>
                 </div>
                 <div class="card-body">
                   <p>Di STIMIK ESQ ada kegiatan seperti volunteer , contohnya volunteer ATS setiap ingin mengikuti kegiatan volunteer harus daftar terlebih dahulu.</p>
