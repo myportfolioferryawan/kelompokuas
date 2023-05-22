@@ -3,13 +3,13 @@
 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="./frontend/style.css">
   <title>Volunteer</title>
 
 <body>
   <div class="card-container">
     <div class="card">
-      <img src="img/card1.jpeg" class="card-img-top">
+      <img src="./frontend/img/card1.jpeg" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">Event 1</h5>
         <p class="card-text">Lorem ipsum dolor sit amet.</p>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="card">
-      <img src="img/card2.jpeg" class="card-img-top">
+      <img src="./frontend/img/card2.jpeg" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">Event 2</h5>
         <p class="card-text">Consectetur adipiscing elit.</p>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="card">
-      <img src="img/card3.jpeg" class="card-img-top">
+      <img src="./frontend/img/card3.jpeg" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">Event 3</h5>
         <p class="card-text">Sed do eiusmod tempor incididunt.</p>

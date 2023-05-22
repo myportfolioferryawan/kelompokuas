@@ -2,5 +2,5 @@
 session_start();
 session_unset();
 session_destroy();
-header("location: ./frontend/awal.php")
+header("location: ./index.php");
 ?>

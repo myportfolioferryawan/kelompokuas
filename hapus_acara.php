@@ -1,8 +1,6 @@
 <?php
-include ("./config.php");
-class acara {
- 
-};
+include "./database.php";
+
     session_start();
     $id_member = $_SESSION['id_member'];
     $id_relawan_acara = $_GET['id_relawan_acara'];

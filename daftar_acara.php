@@ -1,5 +1,5 @@
 <?php
-include "./config.php";
+include "./database.php";
 session_start();
 $id_member = $_GET['id_member'];
 $data = mysqli_query($mysqli, "SELECT id_acara, nama FROM acara");
@@ -14,7 +14,7 @@ $data = mysqli_query($mysqli, "SELECT id_acara, nama FROM acara");
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Dashboard Relawan</title>
+  <title>Daftar acara</title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -29,16 +29,16 @@ $data = mysqli_query($mysqli, "SELECT id_acara, nama FROM acara");
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+        <img src="./img/esq.png" alt="logo" width="100px">
         </div>
-        <div class="sidebar-brand-text mx-3">Volunteer ATS Esq</div>
+        <div class="sidebar-brand-text mx-3">Volunteer</div>
       </a>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="./index.php?id_member=<?php echo $_SESSION['id_member'];?>">
+        <a class="nav-link" href="./dasboard.php?id_member=<?php echo $_SESSION['id_member'];?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -156,7 +156,7 @@ $data = mysqli_query($mysqli, "SELECT id_acara, nama FROM acara");
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="./frontend/awal.php">Logout</a>
+          <a class="btn btn-primary" href="./index.php">Logout</a>
         </div>
       </div>
     </div>

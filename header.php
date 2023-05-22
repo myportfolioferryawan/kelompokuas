@@ -3,7 +3,7 @@
 
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="./frontend/style.css">
 	<title>Volunteer</title>
 </head>
 <body>
@@ -19,8 +19,8 @@
 			<ul>
 				<li><a href="#">Team</a></li>
 				<li><a href="#">Tentang</a></li>
-				<li><a href="../FormPendaftaran.php">Daftar relawan</a></li>
-				<li><a href="../FormLogin.php">Login</a></li>
+				<li><a href="./FormPendaftaran.php">Daftar relawan</a></li>
+				<li><a href="./FormLogin.php">Login</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -37,13 +37,13 @@
 				<!-- markup carousel -->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="img/img1.jpg" alt="Slide 1">
+						<img src="./frontend/img/img1.jpg" alt="Slide 1">
 					</div>
 					<div class="carousel-item">
-						<img src="img/img2.jpg" alt="Slide 2">
+						<img src="./frontend/img/img2.jpg" alt="Slide 2">
 					</div>
 					<div class="carousel-item">
-						<img src="img/img3.jpg" alt="Slide 3">
+						<img src="./frontend/img/img3.jpg" alt="Slide 3">
 					</div>
 					<div class="carousel-caption">
 						<h5>SELAMAT DATANG DI WEBSITE VOLUNTEER</h5>

@@ -1,4 +1,53 @@
 <?php
+include "./database.php";
+// Menggunakan Konsep OOP
+/*
+    class user {
+    private $email;
+    private $password;
+    private $name;
+    private $nohp;
+    private $alamat;
+    
+    public function __construct($email, $password, $name,$nohp,$alamat) {
+        $this->email = $email;
+        $this->password = $password;
+        $this->name = $name;
+        $this->nohp = $nohp;
+        $this->alamat = $alamat;
+    }
+    
+    public function save() {
+        $database = new Database();
+        $conn = $database->getConnection();
+        
+        $sql = "INSERT INTO user (email, password, name, nohp, alamat) VALUES ('$this->email', '$this->password', '$this->name', '$this->nohp','$this->alamat')";
+        if($conn->query($sql) === TRUE) {
+            echo "<script>alert('Daftar relawan sukses!')</script>";
+            echo "<script>top.location='./FormLogin.php'</script>";
+        } else {
+            echo "<script>alert('Daftar relawan Gagal')</script>";
+            echo "<script>top.location='./FormLogin.php'</script>";
+            echo "Err
+            or: " . $sql . "<br>" . $conn->error;
+        }
+        
+        $conn->close();
+    }
+
+    
+}
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $name = $_POST["name"];
+    
+    $user = new user($email, $password, $name,);
+    $user->save();
+}
+ */
+
+// 
 include ("./config.php");
 $name = $_POST['name'];
 $email = $_POST['email'];

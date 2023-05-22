@@ -1,5 +1,5 @@
 <?php
-include("./config.php");
+include "./database.php";
 
 $id_member = $_POST['id_member'];
 $name = $_POST['name'];

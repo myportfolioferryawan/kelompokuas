@@ -1,5 +1,5 @@
 <?php
-include "./config.php";
+include "./database.php";
 session_start();
 $id_member = $_GET['id_member'];
 $data = mysqli_query($mysqli, "SELECT * FROM user WHERE id_member='$id_member'");
@@ -30,16 +30,16 @@ $dr = mysqli_fetch_array($data);
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+        <img src="./img/esq.png" alt="logo" width="100px">
         </div>
-        <div class="sidebar-brand-text mx-3">Volunteer ATS Esq</div>
+        <div class="sidebar-brand-text mx-3">Volunteer</div>
       </a>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="./index.php?id_member=<?php echo $_SESSION['id_member'];?>">
+        <a class="nav-link" href="./dasboard.php?id_member=<?php echo $_SESSION['id_member'];?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -174,7 +174,7 @@ $dr = mysqli_fetch_array($data);
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="./logout.php">Logout</a>
+          <a class="btn btn-primary" href="./FormLogin.php">Logout</a>
         </div>
       </div>
     </div>

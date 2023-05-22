@@ -1,5 +1,5 @@
 <?php
-include ("./config.php");
+include "./database.php";
 session_start();
 $id_member = $_SESSION['id_member'];
 $id_acara = $_POST['acara'];

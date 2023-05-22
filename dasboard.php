@@ -1,10 +1,8 @@
-<?php
+<?php 
 include "./database.php";
 session_start();
-$id_member = $_GET['id_member'];
-$data = mysqli_query($mysqli, "SELECT a.nama, a.tanggal, a.deskripsi, ra.id_acara, ra.status, ra.id_relawan_acara FROM relawan_acara ra JOIN acara a ON ra.id_acara = a.id_acara WHERE ra.id_member='$id_member'");
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +12,7 @@ $data = mysqli_query($mysqli, "SELECT a.nama, a.tanggal, a.deskripsi, ra.id_acar
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Acara</title>
+  <title>Dashboard Relawan</title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -30,7 +28,7 @@ $data = mysqli_query($mysqli, "SELECT a.nama, a.tanggal, a.deskripsi, ra.id_acar
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
-        <img src="./img/esq.png" alt="logo" width="100px">
+          <img src="./img/esq.png" alt="logo" width="100px">
         </div>
         <div class="sidebar-brand-text mx-3">Volunteer</div>
       </a>
@@ -96,7 +94,7 @@ $data = mysqli_query($mysqli, "SELECT a.nama, a.tanggal, a.deskripsi, ra.id_acar
         <div class="container-fluid">
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Acara Volunteer</h1>
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
           </div>
           <!-- Content Row -->
           <div class="row">
@@ -104,48 +102,11 @@ $data = mysqli_query($mysqli, "SELECT a.nama, a.tanggal, a.deskripsi, ra.id_acar
               <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary"><a href="daftar_acara.php?id_member=<?php echo $id_member;?>">Daftar Acara</a></h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Selamat Datang Sahabat Relawan <?php echo $_SESSION['name'];?> </h6>
                 </div>
                 <div class="card-body">
-                <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                    <th>No</th>
-                    <th>Acara</th>
-                    <th>Status</th>
-                    <th>Tanggal</th>
-                    <th>Deskripsi</th>
-                    <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-            <?php
-            $no=1;
-            while($dra = mysqli_fetch_array($data)){
-             ?>
-            <td><?php echo $no;?></td>
-            <td><?php echo $dra['nama']; ?></td>
-            <td><?php $s = $dra['status']; 
-            if($s == 0) echo "Belom dikonfirmasi";
-            else if($s == 1) echo "Diterima";
-            else echo "Ditolak";
-
-             ?></td>
-             <td><?php echo $dra['tanggal'];?></td>
-             <td><?php echo $dra['deskripsi'];?></td>
-            <td>
-                <a href="hapus_acara.php?id_relawan_acara=<?php echo $dra['id_relawan_acara'];?>" class="text-danger" ><i class="fas fa-trash"></i>
-            </td>
-        </tr>
-        <?php 
-        $no++;
-        }
-        ?>
-                  </tbody>
-                </table>
-              </div>
+                  <p>Di STIMIK ESQ ada kegiatan seperti volunteer , contohnya volunteer ATS setiap ingin mengikuti kegiatan volunteer harus daftar terlebih dahulu.</p>
+                  <p class="mb-0">Silahkan Mendaftarkan diri kalian masing-masing dalam ke ikut sertaan Volunteer ATS ESQ Busines School dimana terdapat category yang dapat di pilih sesuai dengan ke inginan relawan</p>
                 </div>
               </div>
             </div>
@@ -198,10 +159,10 @@ $data = mysqli_query($mysqli, "SELECT a.nama, a.tanggal, a.deskripsi, ra.id_acar
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
   <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
   <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>
