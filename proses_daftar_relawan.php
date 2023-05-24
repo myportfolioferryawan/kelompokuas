@@ -8,7 +8,6 @@ include "./database.php";
     private $name;
     private $nohp;
     private $alamat;
-    
     public function __construct($email, $password, $name,$nohp,$alamat) {
         $this->email = $email;
         $this->password = $password;
@@ -16,7 +15,6 @@ include "./database.php";
         $this->nohp = $nohp;
         $this->alamat = $alamat;
     }
-    
     public function save() {
         $database = new Database();
         $conn = $database->getConnection();
@@ -31,11 +29,8 @@ include "./database.php";
             echo "Err
             or: " . $sql . "<br>" . $conn->error;
         }
-        
         $conn->close();
     }
-
-    
 }
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
@@ -46,8 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $user->save();
 }
  */
-
-// 
+// Coding tanpa OOP 
 include ("./config.php");
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -89,7 +83,7 @@ if($query) {
         //Content
         $mail->isHTML(true);                   //Set email format to HTML
         $mail->Subject = 'Daftar Relawan';
-        $mail->Body    = 'Selamat '.$name.' Anda Berhasil daftar <b>Volunteer ATS</b>';
+        $mail->Body    = 'Selamat '.$name. '<br></br> Email Anda : '.$email.'<br></br> Password Anda : '.$password.'<br></br> Anda Berhasil daftar <b>Volunteer ATS</b>';
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();
