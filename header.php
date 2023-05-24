@@ -33,9 +33,9 @@
 		</ul>
 		<!-- Wrapper for slides -->
 		<div class="container-fluit">
-			<div class="carousel-wrapper" style="height: 300px;">
+			<div class="carousel-wrapper" style="height: 500px weidth: 500px;">
 				<!-- markup carousel -->
-				<div class="carousel-inner">
+				<div class="carousel-inner" style="height: 600px weidth: 600px">
 					<div class="carousel-item active">
 						<img src="./frontend/img/img1.jpg" alt="Slide 1">
 					</div>

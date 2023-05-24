@@ -7,46 +7,55 @@
   <title>Volunteer</title>
 
 <body>
+
+
   <div class="card-container">
-    <div class="card">
+    <div class="card my-5">
       <img src="./frontend/img/card1.jpeg" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Event 1</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet.</p>
+        <h5 class="card-title">ESQ EXECUTIVE</h5>
+        <p class="card-text">THE MOST FAVORITE TRAINING SINCE 22 YEARS AGO</p>
         <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
       </div>
     </div>
     <div class="card">
       <img src="./frontend/img/card2.jpeg" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Event 2</h5>
-        <p class="card-text">Consectetur adipiscing elit.</p>
+        <h5 class="card-title">PESANTREN KILAT</h5>
+        <p class="card-text">SPECIAL PESANTREN KILAT RAMADHAN</p>
         <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
       </div>
     </div>
     <div class="card">
       <img src="./frontend/img/card3.jpeg" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Event 3</h5>
-        <p class="card-text">Sed do eiusmod tempor incididunt.</p>
+        <h5 class="card-title">THE AMAZING YOU</h5>
+        <p class="card-text">UNLOCK YOUR POWER LET'S MAKE AN AMAZING THINGS !</p>
         <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
       </div>
     </div>
   </div>
-  <section class="about-section">
-    <h1>About Us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet malesuada tellus non elementum. Vestibulum eu bibendum odio, vel lacinia mi. Nam ullamcorper ante ac nibh bibendum consectetur. Phasellus vel interdum ex. Aliquam eget dictum est. Fusce luctus enim auctor ex laoreet, vel congue turpis aliquet. Nunc a libero tellus. Nulla nec euismod mi, id eleifend nibh. Sed fermentum tortor at eros interdum feugiat. </p>
-    <h2>Watch Our Video</h2>
-    <div class="video-wrapper">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="container">
+  <div class="row my-5">
+  
+    <div class="col-4">
+    <section class="about-section">
+			<h2>HISTORY</h2>
+			<p>Training Motivasi ESQ Berawal dari sebuah mimpi Ary Ginanjar Agustian, kemudian dituangkan melalui tulisan tangan pada lembaran kertas – kertas bekas, goresan tangan yang melambangkan gemuruh jiwa diiringi tetesan airmata.
+
+Mencerminkan kesungguhan akan pencarian makna, hingga lebih dari 5000 halaman merekam pengalaman, perasaan serta perjalanan pemikiran, hingga lahirnya sebuah visi, misi dan nilai… </p>
+            
     </div>
-  </section>
-  <section class="video-section">
-    <h2>Watch Our Video</h2>
+    <div class="col-6">
     <div class="video-wrapper">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h2>WATCH OUR VIDEO</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9vxMlJvvPbU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			</div>
     </div>
-  </section>
+  </div>
+</div>
+</section>
+<br>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
